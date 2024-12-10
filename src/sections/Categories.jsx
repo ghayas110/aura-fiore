@@ -1,28 +1,34 @@
 "use client";
 
 import React from "react";
-
+import { useRouter } from "next/navigation";
 const CategoriesPage = () => {
+  const router = useRouter();
   const categories = [
     {
-      title: "Shirt Dresses",
+      id:1,
+      title: "Bras",
       image: "/images/shirt.jpg",
       isLarge: true,
     },
     {
-      title: "Wedding Dresses",
+      id:2,
+      title: "Panties",
       image: "/images/shirt2.jpg",
     },
     {
-      title: "Best Shirt",
+      id:3,
+      title: "Night Wear",
       image: "/images/shirt3.jpg",
     },
     {
-      title: "Best Pants",
+      id:4,
+      title: "Inner Wear",
       image: "/images/shirt4.jpg",
     },
     {
-      title: "Sport Wear",
+      id:5,
+      title: "Swim Wear",
       image: "/images/shirt5.jpg",
     },
   ];
@@ -32,18 +38,19 @@ const CategoriesPage = () => {
       <div className="flex flex-col md:flex-row gap-4">
         {/* Large Item */}
         <div className="w-full md:w-1/2">
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full cursor-pointer" onClick={() => router.push(`/cat/${categories[0].id}`) }>
             {/* Text Overlay */}
-            <div className="absolute top-0 left-0 w-full h-full  bg-opacity-40 flex items-center justify-center " >
-              <h2 className="text-white text-2xl md:text-4xl font-bold" style={{zIndex:"100000"}}>
-                {categories[0].title}
+            <div className="w-full h-full" style={{position:"absolute" ,zIndex:"10",top:"0",left:"0",padding:"10px"}} >
+            <h2 className="text-white font-bold" style={{fontSize:"30px"}}>
+            {categories[0].title}
               </h2>
             </div>
             {/* Image */}
             <img
+            style={{resize:"cover",objectFit:"cover",height:"100%"}}
               src={categories[0].image}
               alt={categories[0].title}
-              className="w-full h-[300px] md:h-[500px] object-cover rounded-md"
+              className="w-full md:h-[500px] object-cover rounded-md"
             />
           </div>
         </div>
@@ -53,8 +60,8 @@ const CategoriesPage = () => {
           {categories.slice(1).map((category, index) => (
             <div key={index} className="relative">
               {/* Text Overlay */}
-              <div className="absolute top-0 left-0 w-full h-full  bg-opacity-40 flex items-center justify-center z-10">
-                <h2 className="text-white text-lg md:text-xl font-bold">
+              <div className=" w-full h-full  bg-opacity-40  z-10" style={{position:"absolute",zIndex:"100000",bottom:"0",padding:"10px"}}>
+                <h2 className="text-white font-bold" style={{zIndex:"100000",fontSize:"30px"}}>
                   {category.title}
                 </h2>
               </div>

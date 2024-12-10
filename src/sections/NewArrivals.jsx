@@ -3,23 +3,28 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { useRouter } from "next/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const NewArrivals = () => {
+  const router = useRouter();
   const products = [
     {
+      id: 1,
       image: "/images/girl.png",
       name: "Lace Bralette Set",
       price: "$49.99",
     },
     {
+      id: 2,
       image: "/images/female2.png",
       name: "Satin Nightwear",
       price: "$59.99",
     },
     {
+      id: 3,
       image: "/images/female2.png",
       name: "Mesh Bodysuit",
       price: "$39.99",
@@ -29,7 +34,7 @@ const NewArrivals = () => {
   return (
     <section className="new-arrivals bg-gray-50 p-20 " style={{margin:"50px"}}>
       <div className="container mx-auto">
-        <h2 className="text-xl sm:text-3xl font-bold text-center mb-20" style={{color:"black",fontSize:"40px"}}>
+        <h2 className="text-xl sm:text-3xl font-bold text-center mb-8" >
           New Arrivals
         </h2>
         <Swiper
@@ -54,7 +59,7 @@ const NewArrivals = () => {
         >
           {products.map((product, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center w-[300px] h-[400px] mx-auto">
+              <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center w-[300px] h-[400px] mx-auto" onClick={() => router.push(`/product/${product.id}`)}>
                 <img
                   src={product.image}
                   alt={product.name}

@@ -134,7 +134,7 @@ const CheckoutPage = () => {
                     <span>Total (1 course):</span>
                     <span>$22.99</span>
                 </div>
-                <button className="bg-purple-600 text-white py-2 px-4 rounded-md w-full">
+                <button className="bg-pink-600 text-white py-2 px-4 rounded-md w-full">
                     Complete Checkout
                 </button>
                 <p className="text-sm text-gray-500 mt-2 text-center">

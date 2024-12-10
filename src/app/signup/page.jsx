@@ -118,7 +118,7 @@ const SignUp= () => {
                   type="submit"
                   value={loading ? 'Signing Up...' : 'Sign Up'}
                   disabled={loading}
-                  className="w-full cursor-pointer rounded-lg border border-primary bg-blue-500 p-4 text-white transition hover:bg-opacity-90"
+                  className="w-full cursor-pointer rounded-lg border border-primary bg-pink-500 p-4 text-white transition hover:bg-opacity-90"
                 />
                 </div>
               </form>

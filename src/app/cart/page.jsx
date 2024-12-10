@@ -65,14 +65,14 @@ const CartPage = () => {
       {/* Summary Section */}
       <div className="p-6 bg-gray-100 rounded-md shadow-md">
         <h2 className="text-lg font-bold">Total:</h2>
-        <p className="text-2xl font-bold text-purple-600">
+        <p className="text-2xl font-bold text-pink-500">
           ${cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
         </p>
         <p className="text-sm text-gray-500 line-through">
           ${cartItems.reduce((acc, item) => acc + item.originalPrice, 0).toFixed(2)}
         </p>
         <Link href="/checkout">
-          <button className="bg-purple-600 text-white py-2 px-4 rounded-md mt-4">
+          <button className="bg-pink-500 text-white py-2 px-4 rounded-md mt-4">
             Checkout
           </button>
         </Link>
@@ -84,7 +84,7 @@ const CartPage = () => {
             placeholder="Enter Coupon"
             className="w-full p-2 border rounded-md mt-2"
           />
-          <button className="bg-purple-600 text-white py-2 px-4 rounded-md mt-2">
+          <button className="bg-pink-500 text-white py-2 px-4 rounded-md mt-2">
             Apply
           </button>
         </div>

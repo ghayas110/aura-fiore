@@ -6,28 +6,33 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "./Banner.css"; // Assuming you're using an external CSS file
 
 const Banner = () => {
   const slides = [
     {
-      image: "/images/girl.png",
+      image: "/slide2.png",
       title: "Elegance Redefined",
       description:
         "Discover exquisite lingerie that blends comfort with sophistication. Embrace your beauty with our premium collection.",
     },
     {
-      image: "/images/female2.png",
+      image: "/slide2.png",
       title: "Feel Confident, Look Stunning",
       description:
         "Unleash your confidence with designs tailored to make every moment special. Explore our range today.",
     },
-   
   ];
 
   return (
     <section
-      className="relative w-full xl:px-10 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/female.jpg')",backgroundSize: "cover" }} // Replace with your background image path
+      className="relative w-full xl:p-10 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/female.jpg')",
+        backgroundSize: "cover",
+        paddingTop: "50px",
+        paddingBottom: "50px",
+      }}
     >
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
@@ -45,18 +50,20 @@ const Banner = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="flex items-center">
-            <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 sm:mt-20 ">
-              <div className=" p-6 md:p-8 rounded-md shadow-md max-w-md w-full">
-                <h2 className="text-white sm:text-2xl md:text-3xl font-bold mb-4" style={{ fontSize: "4.5rem" }}>
+            <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 sm:mt-20">
+              <div className="p-6 md:p-8  max-w-md w-full">
+                <h3
+                  className="text-white font-bold mb-4"
+                  style={{ fontSize: "70px" }}
+                >
                   {slide.title}
-                </h2>
-                <p className="text-white text-sm sm:text-base mb-6">
+                </h3>
+                <p className="text-white text-sm sm:text-base mb-6"
+                    style={{ fontSize: "20px", lineHeight: "1.5" }}>
                   {slide.description}
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                  <button className="bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800">
-                    Shop Now
-                  </button>
+                
                 </div>
               </div>
               <div className="w-full md:w-auto mb-6 md:mb-0">
