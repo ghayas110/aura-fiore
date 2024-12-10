@@ -155,7 +155,7 @@ const closeModal = () => {
       )}
       {isModalOpen && (
         <div className="fixed inset-0 bg-pink-500 bg-opacity-50  flex justify-center items-center " style={{zIndex:10000000}}>
-          <div className="relative bg-white rounded-lg shadow-lg w-full max-w-7xl flex">
+          <div className="relative bg-white rounded-lg shadow-lg w-full max-w-5xl flex">
             {/* Left Section */}
             <div className="absolute top-0 left-0 p-10 z-50 cursor-pointer" onClick={closeModal}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
