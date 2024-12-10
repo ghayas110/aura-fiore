@@ -1,4 +1,4 @@
-import { Banner, Courses, NewArrivals } from "@/sections";
+import { Banner, Categories, NewArrivals } from "@/sections";
 import Image from "next/image";
 
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <Banner/>
       <NewArrivals/>
-      <Courses/>
+      <Categories/>
     </div>
   );
 }

@@ -20,17 +20,16 @@ const NewArrivals = () => {
       price: "$59.99",
     },
     {
-      image: "/images/xss.webp",
+      image: "/images/female2.png",
       name: "Mesh Bodysuit",
       price: "$39.99",
     },
-   
   ];
 
   return (
-    <section className="new-arrivals bg-gray-50 py-12 px-6">
+    <section className="new-arrivals bg-gray-50 p-20 " style={{margin:"50px"}}>
       <div className="container mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+        <h2 className="text-xl sm:text-3xl font-bold text-center mb-20" style={{color:"black",fontSize:"40px"}}>
           New Arrivals
         </h2>
         <Swiper
@@ -55,15 +54,17 @@ const NewArrivals = () => {
         >
           {products.map((product, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+              <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center w-[300px] h-[400px] mx-auto">
                 <img
                   src={product.image}
                   alt={product.name}
                   className="object-cover h-48 w-full rounded-md mb-4"
                 />
-                <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-gray-600">{product.price}</p>
-                <button className="mt-4 bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800">
+                <h3 className="text-lg font-semibold text-center">
+                  {product.name}
+                </h3>
+                <p className="text-gray-600 text-center">{product.price}</p>
+                <button className="mt-auto bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800">
                   Shop Now
                 </button>
               </div>
