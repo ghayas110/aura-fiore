@@ -8,6 +8,10 @@ export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false); 
 const router = useRouter();
+const handleSignIn =()=>{
+localStorage.setItem("role","admin")
+router.push('dashboard')
+}
 const nav=[
   {
     id:1,
@@ -219,6 +223,7 @@ const closeModal = () => {
                 <button
                   type="submit"
                   className="w-full bg-pink-500 text-white py-2 rounded-md"
+                  onClick={handleSignIn}
                 >
                   {isSignUp ? "Sign Up" : "Login"}
                 </button>
