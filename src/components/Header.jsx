@@ -7,10 +7,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false); 
+
 const router = useRouter();
 const handleSignIn =(e)=>{
   e.preventDefault();
   router.push('dashboard')
+   window.dispatchEvent(new Event("storage")); 
  localStorage.setItem("role","admin")
  setIsModalOpen(false)
 }
