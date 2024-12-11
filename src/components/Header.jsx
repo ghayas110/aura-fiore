@@ -8,9 +8,11 @@ export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false); 
 const router = useRouter();
-const handleSignIn =()=>{
-localStorage.setItem("role","admin")
-router.push('dashboard')
+const handleSignIn =(e)=>{
+  e.preventDefault();
+  router.push('dashboard')
+ localStorage.setItem("role","admin")
+ setIsModalOpen(false)
 }
 const nav=[
   {
@@ -162,8 +164,8 @@ const closeModal = () => {
           <div className="relative bg-white rounded-lg shadow-lg w-full max-w-5xl flex">
             {/* Left Section */}
             <div className="absolute top-0 left-0 p-10 z-50 cursor-pointer" onClick={closeModal}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
 </svg>
 
 
@@ -183,7 +185,7 @@ const closeModal = () => {
               <p className="text-gray-600 mb-6">
                 {isSignUp ? "Join us today!" : "Welcome back!"}
               </p>
-              <form>
+              <form onSubmit={handleSignIn}>
                 {/* Name Field (only for Sign Up) */}
                 {isSignUp && (
                   <div className="mb-4">
@@ -223,7 +225,7 @@ const closeModal = () => {
                 <button
                   type="submit"
                   className="w-full bg-pink-500 text-white py-2 rounded-md"
-                  onClick={handleSignIn}
+                  // onClick={handleSignIn}
                 >
                   {isSignUp ? "Sign Up" : "Login"}
                 </button>

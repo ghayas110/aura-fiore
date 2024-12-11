@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -13,8 +13,26 @@ export default function DashboardLayout({ children }) {
     { title: "Product", route: "/dashboard/product" },
     { title: "Categories", route: "/dashboard/category" },
   ];
+  const [role, setRole] = useState(null); // State to store the role from localStorage
 
-  const handleLogout = () => {
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+    setRole(storedRole);
+
+    // Listen for changes in localStorage
+    const handleStorageChange = () => {
+      const updatedRole = localStorage.getItem("role");
+      setRole(updatedRole);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+  const handleLogout = (e) => {
+    e.preventDefault()
     localStorage.clear(); // Clear all localStorage items
     window.dispatchEvent(new Event("storage")); // Trigger storage event manually
     router.push("/"); // Redirect to the home page
